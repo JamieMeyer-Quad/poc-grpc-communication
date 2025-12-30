@@ -1,0 +1,21 @@
+// chat.proto
+syntax = "proto3";
+
+option java_package = "com.example.chat";
+option java_multiple_files = true;
+option csharp_namespace = "ChatApp";
+
+service ChatService {
+  rpc Chat(stream MessageRequest) returns (stream MessageResponse);
+}
+
+message MessageRequest {
+  string sender = 1;
+  string content = 2;
+}
+
+message MessageResponse {
+  string sender = 1;
+  string content = 2;
+  string timestamp = 3;
+}
